@@ -32,21 +32,22 @@ header p {
 }
 
 .slides-container {
+  width: 100%;
+  max-height: none;  
+  overflow: hidden;
   display: flex;
-  width: 400%; /* 4 slides */
-  transition: transform 1s ease-in-out;
 }
 
 .slide {
-  flex: 1 0 100%;
+  flex: 0 0 100%;     
+  text-align: center; 
 }
 
 .slide img {
   width: 100%;
-  height: auto;          /* keep natural height */
-  object-fit: contain;   /* show full image */
-  display: block;
-  background: #000;      /* optional: fill empty space with black */
+  height: auto;        
+  object-fit: contain;  
+  background: #fff;    
 }
 
 /* Prev/Next buttons */
@@ -148,4 +149,5 @@ footer {
   background: #eee;
   font-size: 0.9em;
 }
+
 
