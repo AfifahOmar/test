@@ -162,3 +162,30 @@ footer {
   margin-bottom: 20px;
   color: #6b4f4f;
 }
+
+/* Navigation styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;         /* default color */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #b5651d;      /* color when hovered */
+}
+
+/* Optional: make active link highlighted when clicked */
+nav ul li a:focus,
+nav ul li a:active {
+  color: #6b4f4f;
+}
