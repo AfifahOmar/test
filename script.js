@@ -1,51 +1,52 @@
-let slideIndex = 1;
-const slides = document.getElementsByClassName("slide");
-const dots = document.getElementsByClassName("dot");
-const slidesContainer = document.querySelector(".slides-container");
-const total = slides.length;
-let timer;
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.querySelector('.slides-wrapper');
+  const track = document.querySelector('.slides-track');
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
 
-// Show a specific slide
-function showSlide(n) {
-  if (n > total) { slideIndex = 1; }
-  else if (n < 1) { slideIndex = total; }
-  else { slideIndex = n; }
+  if (!wrapper || !track || slides.length === 0) return;
 
-  // Move slidesContainer
-  slidesContainer.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+  let index = 0;
+  let timer = null;
+  const total = slides.length;
 
-  // Update dots
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
+  function update() {
+    const w = wrapper.clientWidth;
+    // translate in pixels (robust)
+    track.style.transform = `translateX(-${index * w}px)`;
+    // update dots
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
   }
-  dots[slideIndex - 1].classList.add("active");
-}
 
-// Next / previous
-function plusSlides(n) {
-  showSlide(slideIndex + n);
-  resetTimer();
-}
+  function goTo(i) {
+    index = ((i % total) + total) % total; // wrap properly
+    update();
+  }
 
-// Direct to slide
-function currentSlide(n) {
-  showSlide(n);
-  resetTimer();
-}
+  function next() { goTo(index + 1); resetTimer(); }
+  function prev() { goTo(index - 1); resetTimer(); }
+  function setCurrent(i) { goTo(i); resetTimer(); }
 
-// Auto slide
-function autoSlide() {
-  timer = setInterval(() => {
-    showSlide(slideIndex + 1);
-  }, 3000);
-}
+  function startTimer() {
+    timer = setInterval(() => goTo(index + 1), 3000);
+  }
 
-// Reset timer when user interacts
-function resetTimer() {
-  clearInterval(timer);
-  autoSlide();
-}
+  function resetTimer() {
+    clearInterval(timer);
+    startTimer();
+  }
 
-// Start
-showSlide(slideIndex);
-autoSlide();
+  // wire up controls
+  prevBtn && prevBtn.addEventListener('click', prev);
+  nextBtn && nextBtn.addEventListener('click', next);
+  dots.forEach((dot, i) => dot.addEventListener('click', () => setCurrent(i)));
+
+  // adjust when window resized so pixel translate stays correct
+  window.addEventListener('resize', () => update());
+
+  // init
+  update();
+  startTimer();
+});
