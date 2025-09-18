@@ -43,9 +43,10 @@ header p {
 
 .slide img {
   width: 100%;
-  height: auto;          /* let image height adjust */
-  object-fit: contain;   /* show full image without crop */
+  height: auto;          /* keep natural height */
+  object-fit: contain;   /* show full image */
   display: block;
+  background: #000;      /* optional: fill empty space with black */
 }
 
 /* Prev/Next buttons */
@@ -147,3 +148,4 @@ footer {
   background: #eee;
   font-size: 0.9em;
 }
+
