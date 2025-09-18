@@ -150,3 +150,15 @@ footer {
   opacity: 1;
   transform: translateY(0);   /* slide up into place */
 }
+
+.menu-section {
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.menu-title {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #6b4f4f;
+}
