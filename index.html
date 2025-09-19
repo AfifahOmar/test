@@ -9,18 +9,20 @@
 <body>
   
   <!-- Header -->
- <header>
+  <header>
     <h1>𐙚 ‧₊˚ ⋅ Sweety Cafe ૮ ˶ᵔ ᵕ ᵔ˶ ა</h1>
-    <p>Welcome to  our cafe menu (˶˃ ᵕ ˂˶) .ᐟ.ᐟ</p>
+    <p>Welcome to our cafe menu (˶˃ ᵕ ˂˶) .ᐟ.ᐟ</p>
     <nav>
       <ul>
         <li><a href="#drinks">Drinks</a></li>
         <li><a href="#food">Food</a></li>
+        <li><a href="#contact">Contact</a></li> <!-- ✅ new nav item -->
       </ul>
     </nav>
   </header>
+  
   <!-- Slideshow -->
-  <section class="slideshow">
+  <section class="slideshow-container">
     <div class="slides-wrapper">
       <div class="slides-track">
         <div class="slide"><img src="image/slide1.jpg" alt="Slide 1"></div>
@@ -31,8 +33,7 @@
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
-    <div class="dots">
-    </div>
+    <div class="dots"></div>
   </section>
 
   <!-- Drinks Section -->
@@ -62,33 +63,32 @@
         </div>
 
         <div class="card">
-        <img src="image/matcha.png" alt="Matcha Latte">
-        <h2>Matcha Latte</h2>
-        <p>Japanese green tea with steamed milk.</p>
-        <span class="price">RM 14.00</span>
-      </div>
+          <img src="image/matcha.png" alt="Matcha Latte">
+          <h2>Matcha Latte</h2>
+          <p>Japanese green tea with steamed milk.</p>
+          <span class="price">RM 14.00</span>
+        </div>
 
         <div class="card">
-        <img src="image/mocha.png" alt="Mocha">
-        <h2>Mocha</h2>
-        <p>Chocolate meets espresso and milk.</p>
-        <span class="price">RM 13.00</span>
-      </div>
+          <img src="image/mocha.png" alt="Mocha">
+          <h2>Mocha</h2>
+          <p>Chocolate meets espresso and milk.</p>
+          <span class="price">RM 13.00</span>
+        </div>
 
         <div class="card">
-        <img src="image/sm.png" alt="Strawberry Milkshake">
-        <h2>Strawberry Milkshake</h2>
-        <p>Fresh strawberry blended with milk.</p>
-        <span class="price">RM 10.00</span>
-      </div>
+          <img src="image/sm.png" alt="Strawberry Milkshake">
+          <h2>Strawberry Milkshake</h2>
+          <p>Fresh strawberry blended with milk.</p>
+          <span class="price">RM 10.00</span>
+        </div>
 
         <div class="card">
-        <img src="image/taroboba.png" alt="Taro Boba">
-        <h2>Taro Boba</h2>
-        <p>Sweet taro drink with chewey boba.</p>
-        <span class="price">RM 10.00</span>
-      </div>
-        <!-- Add more drinks here -->
+          <img src="image/taroboba.png" alt="Taro Boba">
+          <h2>Taro Boba</h2>
+          <p>Sweet taro drink with chewey boba.</p>
+          <span class="price">RM 10.00</span>
+        </div>
       </div>
     </section>
 
@@ -96,7 +96,6 @@
     <section id="food" class="menu-section">
       <h2 class="menu-title">Food</h2>
       <div class="menu">
-        
         <div class="card">
           <img src="image/croissant.png" alt="Croissant">
           <h3>Croissant</h3>
@@ -119,33 +118,32 @@
         </div>
 
         <div class="card">
-        <img src="image/brownie.png" alt="Brownie">
-        <h2>Brownie</h2>
-        <p>Rich chocolate dessert with fudgy texture.</p>
-        <span class="price">RM 7.00</span>
-      </div>
+          <img src="image/brownie.png" alt="Brownie">
+          <h2>Brownie</h2>
+          <p>Rich chocolate dessert with fudgy texture.</p>
+          <span class="price">RM 7.00</span>
+        </div>
 
         <div class="card">
-        <img src="image/cheesecake.png" alt="Cheesecake">
-        <h2>Cheesecake</h2>
-        <p>Rich & creamy, the perfect sweet treat.</p>
-        <span class="price">RM 15.00</span>
-      </div>
+          <img src="image/cheesecake.png" alt="Cheesecake">
+          <h2>Cheesecake</h2>
+          <p>Rich & creamy, the perfect sweet treat.</p>
+          <span class="price">RM 15.00</span>
+        </div>
 
-            <div class="card">
-        <img src="image/pavlova.png" alt="Pavlova">
-        <h2>Pavlova</h2>
-        <p>crisp crust and soft, light inside dessert.</p>
-        <span class="price">RM 10.00</span>
-      </div>
+        <div class="card">
+          <img src="image/pavlova.png" alt="Pavlova">
+          <h2>Pavlova</h2>
+          <p>crisp crust and soft, light inside dessert.</p>
+          <span class="price">RM 10.00</span>
+        </div>
 
-            <div class="card">
-        <img src="image/pretzel.png" alt="Pretzel">
-        <h2>Pretzel</h2>
-        <p>bred.</p>
-        <span class="price">RM 15.00</span>
-      </div>
-        <!-- Add more food here -->
+        <div class="card">
+          <img src="image/pretzel.png" alt="Pretzel">
+          <h2>Pretzel</h2>
+          <p>bred.</p>
+          <span class="price">RM 15.00</span>
+        </div>
       </div>
     </section>
   </main>
@@ -166,8 +164,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
