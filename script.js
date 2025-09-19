@@ -1,71 +1,56 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const wrapper = document.querySelector('.slides-wrapper');
-  const track = document.querySelector('.slides-track');
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const dots = Array.from(document.querySelectorAll('.dot'));
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
+let slideIndex = 1;
+let slides, dots;
 
-  if (!wrapper || !track || slides.length === 0) return;
+// Initialize slideshow
+function initSlideshow() {
+  slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.dots');
 
-  let index = 0;
-  let timer = null;
-  const total = slides.length;
+  // clear any existing dots
+  dotsContainer.innerHTML = '';
 
-  function update() {
-    const w = wrapper.clientWidth;
-    // translate in pixels (robust)
-    track.style.transform = `translateX(-${index * w}px)`;
-    // update dots
-    dots.forEach((d, i) => d.classList.toggle('active', i === index));
-  }
+  // create dots dynamically
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dot.addEventListener('click', () => currentSlide(i + 1));
+    dotsContainer.appendChild(dot);
+  });
 
-  function goTo(i) {
-    index = ((i % total) + total) % total; // wrap properly
-    update();
-  }
+  dots = document.querySelectorAll('.dot');
 
-  function next() { goTo(index + 1); resetTimer(); }
-  function prev() { goTo(index - 1); resetTimer(); }
-  function setCurrent(i) { goTo(i); resetTimer(); }
+  showSlides(slideIndex);
+}
 
-  function startTimer() {
-    timer = setInterval(() => goTo(index + 1), 3000);
-  }
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-  function resetTimer() {
-    clearInterval(timer);
-    startTimer();
-  }
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-  // wire up controls
-  prevBtn && prevBtn.addEventListener('click', prev);
-  nextBtn && nextBtn.addEventListener('click', next);
-  dots.forEach((dot, i) => dot.addEventListener('click', () => setCurrent(i)));
+function showSlides(n) {
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
 
-  // adjust when window resized so pixel translate stays correct
-  window.addEventListener('resize', () => update());
+  slides.forEach(slide => {
+    slide.style.display = 'none';
+  });
 
-  // init
-  update();
-  startTimer();
-});
+  dots.forEach(dot => {
+    dot.classList.remove('active');
+  });
 
-// Menu card animation on scroll
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.card');
+  slides[slideIndex - 1].style.display = 'block';
+  dots[slideIndex - 1].classList.add('active');
+}
 
-  function showCards() {
-    const triggerBottom = window.innerHeight * 0.9;
-    cards.forEach(card => {
-      const cardTop = card.getBoundingClientRect().top;
-      if (cardTop < triggerBottom) {
-        card.classList.add('show');
-      }
-    });
-  }
+// Add button functionality
+document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+document.querySelector('.next').addEventListener('click', () => plusSlides(1));
 
-  window.addEventListener('scroll', showCards);
-  showCards(); // run once on load
-});
-
+// Run when page loads
+document.addEventListener('DOMContentLoaded', initSlideshow);
