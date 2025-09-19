@@ -189,3 +189,35 @@ nav ul li a:focus,
 nav ul li a:active {
   color: #6b4f4f;
 }
+
+/* Contact Section */
+.contact-section {
+  background: #f9f4f1;          /* soft cream background */
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-section h2 {
+  font-size: 1.8em;
+  color: #6b4f4f;
+  margin-bottom: 15px;
+}
+
+.contact-section p {
+  font-size: 1.1em;
+  margin: 8px 0;
+  color: #444;
+}
+
+.contact-section .phone,
+.contact-section .email {
+  font-weight: bold;
+  color: #333;
+}
+
