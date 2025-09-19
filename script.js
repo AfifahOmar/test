@@ -1,5 +1,6 @@
 let slideIndex = 1;
 let slides, dots;
+let slideTimer;
 
 // Initialize slideshow
 function initSlideshow() {
@@ -20,16 +21,19 @@ function initSlideshow() {
   dots = document.querySelectorAll('.dot');
 
   showSlides(slideIndex);
+
+  // start autoplay
+  startAutoplay();
 }
 
-// Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
+  resetAutoplay();
 }
 
-// Thumbnail image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
+  resetAutoplay();
 }
 
 function showSlides(n) {
@@ -48,9 +52,39 @@ function showSlides(n) {
   dots[slideIndex - 1].classList.add('active');
 }
 
-// Add button functionality
-document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
-document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+function startAutoplay() {
+  slideTimer = setInterval(() => {
+    plusSlides(1);
+  }, 5000); // change every 5 seconds
+}
 
-// Run when page loads
-document.addEventListener('DOMContentLoaded', initSlideshow);
+function resetAutoplay() {
+  clearInterval(slideTimer);
+  startAutoplay();
+}
+
+// Add button functionality
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+  document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+
+  initSlideshow();
+});
+
+// MENU CARD ANIMATION
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+});
