@@ -1,13 +1,14 @@
 let slideIndex = 1;
 let slides, dots;
 let slideTimer;
+let track, wrapper;
 
 // Initialize slideshow
 function initSlideshow() {
   slides = document.querySelectorAll('.slide');
+  track = document.querySelector('.slides-track');
+  wrapper = document.querySelector('.slides-wrapper');
   const dotsContainer = document.querySelector('.dots');
-const wrapper = document.querySelector('.slides-wrapper');
-const track = document.querySelector('.slides-track');
 
   // clear any existing dots
   dotsContainer.innerHTML = '';
@@ -42,15 +43,10 @@ function showSlides(n) {
   if (n > slides.length) { slideIndex = 1; }
   if (n < 1) { slideIndex = slides.length; }
 
-  slides.forEach(slide => {
-    slide.style.display = 'none';
-  });
+  const offset = -(slideIndex - 1) * 100;
+  track.style.transform = `translateX(${offset}%)`;
 
-  dots.forEach(dot => {
-    dot.classList.remove('active');
-  });
-
-  slides[slideIndex - 1].style.display = 'block';
+  dots.forEach(dot => dot.classList.remove('active'));
   dots[slideIndex - 1].classList.add('active');
 }
 
