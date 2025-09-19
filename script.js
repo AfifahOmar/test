@@ -6,6 +6,8 @@ let slideTimer;
 function initSlideshow() {
   slides = document.querySelectorAll('.slide');
   const dotsContainer = document.querySelector('.dots');
+const wrapper = document.querySelector('.slides-wrapper');
+const track = document.querySelector('.slides-track');
 
   // clear any existing dots
   dotsContainer.innerHTML = '';
