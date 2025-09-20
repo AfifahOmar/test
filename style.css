@@ -21,7 +21,7 @@ header p { margin: 5px 0 0; }
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 900px; /* you can adjust */
+  max-width: 900px;
   margin: auto;
 }
 
@@ -42,15 +42,15 @@ header p { margin: 5px 0 0; }
 .slide {
   min-width: 100%;
   box-sizing: border-box;
-  display: flex;             /* center image inside */
+  display: flex; 
   justify-content: center;
   align-items: center;
 }
 
 .slide img {
-  width: 100%;               /* image fills the slide width */
-  height: 100%;              /* image fills the slide height */
-  object-fit: cover;         /* crop to fit instead of squeezing */
+  width: 100%;            
+  height: 100%;            
+  object-fit: cover;      
   display: block;
 }
 
@@ -130,14 +130,14 @@ footer {
   width: 220px;
   padding: 15px;
   text-align: center;
-  opacity: 0;                 /* start invisible */
-  transform: translateY(30px); /* start slightly down */
+  opacity: 0;                
+  transform: translateY(30px); 
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .card.show {
   opacity: 1;
-  transform: translateY(0);   /* slide up into place */
+  transform: translateY(0);  
 }
 
 .menu-section {
@@ -170,7 +170,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #b5651d;      /* color when hovered */
+  color: #b5651d;     
 }
 
 /* Optional: make active link highlighted when clicked */
@@ -181,7 +181,7 @@ nav ul li a:active {
 
 /* Contact Section */
 .contact-section {
-  background: #f9f4f1;          /* soft cream background */
+  background: #f9f4f1;
   text-align: center;
   padding: 40px 20px;
   margin-top: 40px;
@@ -190,7 +190,7 @@ nav ul li a:active {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  margin-bottom: 15px; /* Adds 15px space below the element */
+  margin-bottom: 20px; 
 }
 
 .contact-section h2 {
@@ -210,6 +210,7 @@ nav ul li a:active {
   font-weight: bold;
   color: #333;
 }
+
 
 
 
