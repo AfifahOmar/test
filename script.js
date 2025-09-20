@@ -17,6 +17,7 @@ function initSlideshow() {
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
     dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active'); // ✅ make first dot active
     dot.addEventListener('click', () => currentSlide(i + 1));
     dotsContainer.appendChild(dot);
   });
