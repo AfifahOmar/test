@@ -8,7 +8,7 @@ body {
 
 header {
   text-align: center;
-  background: #6b4f4f;
+  background: #856b99;
   color: white;
   padding: 20px 10px;
   margin-bottom: 20px;
@@ -213,6 +213,7 @@ nav ul li a:active {
   font-weight: bold;
   color: #333;
 }
+
 
 
 
