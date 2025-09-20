@@ -53,7 +53,7 @@ function showSlides(n) {
 function startAutoplay() {
   slideTimer = setInterval(() => {
     plusSlides(1);
-  }, 5000); // change every 5 seconds
+  }, 3000); // change every 3 seconds
 }
 
 function resetAutoplay() {
