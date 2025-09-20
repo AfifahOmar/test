@@ -91,14 +91,11 @@ header p { margin: 5px 0 0; }
 
 /* --- Menu styling (kept the same) --- */
 .menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;   /* center the whole block */
-  align-items: flex-start;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1000px;         /* set a width limit */
-  margin: 0 auto;            /* center the whole container */
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  padding: 20px; 
+  gap: 20px; 
 }
 
 .card {
@@ -216,6 +213,7 @@ nav ul li a:active {
   font-weight: bold;
   color: #333;
 }
+
 
 
 
