@@ -23,6 +23,7 @@ header p { margin: 5px 0 0; }
   width: 100%;
   max-width: 900px;
   margin: auto;
+  margin-top: 20px;
 }
 
 /* Wrapper to hide overflow */
@@ -210,6 +211,7 @@ nav ul li a:active {
   font-weight: bold;
   color: #333;
 }
+
 
 
 
