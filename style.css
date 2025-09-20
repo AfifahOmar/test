@@ -2,13 +2,13 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5edfc;
+  background: #fcf0ed;
   color: #333;
 }
 
 header {
   text-align: center;
-  background: #856b99;
+  background: #7d574f;
   color: white;
   padding: 20px 10px;
   margin-bottom: 20px;
@@ -213,6 +213,7 @@ nav ul li a:active {
   font-weight: bold;
   color: #333;
 }
+
 
 
 
